@@ -12,8 +12,16 @@ import { StoreModule } from '@ngrx/store';
 import { LoginModule } from './components/app-login-wrapper/store/login.module';
 import { EffectsModule } from '@ngrx/effects';
 import { LoginEffects } from './components/app-login-wrapper/store/login.effects';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
+
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [AppComponent, AppLoginWrapperComponent, DashboardComponent],
@@ -24,6 +32,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FormsModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([LoginEffects]),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
     LoginModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25,

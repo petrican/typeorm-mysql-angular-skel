@@ -1,0 +1,11 @@
+{
+  "LOGIN": {
+    "USERNAME": "nom d'utilisateur",
+    "PASSWORD": "le mot de passe",
+    "LOGIN_BUTTON": "Authentification",
+    "LOGOUT_BUTTON": "Déconnecter"
+  },
+  "DASHBOARD": {
+    "WELCOME": "Bienvenue sur le tableau de bord"
+  }
+}

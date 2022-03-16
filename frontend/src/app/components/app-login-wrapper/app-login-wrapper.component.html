@@ -34,7 +34,7 @@
             type="text"
             class="form-control"
             autocomplete="off"
-            placeholder="Username"
+            placeholder="{{ 'LOGIN.USERNAME' | translate }}"
             aria-label="Username"
             name="username"
             ngModel
@@ -65,7 +65,7 @@
           <input
             type="password"
             class="form-control"
-            placeholder="Password"
+            placeholder="{{ 'LOGIN.PASSWORD' | translate }}"
             aria-label="Password"
             autocomplete="off"
             name="password"
@@ -93,7 +93,8 @@
         type="submit"
         class="show-login-loading btn btn-app login-btn btn-block w-100"
       >
-        <i class="fa fa-spin fa-circle-o-notch" style="display: none"></i> Login
+        <i class="fa fa-spin fa-circle-o-notch" style="display: none"></i
+        >{{ "LOGIN.LOGIN_BUTTON" | translate }}
       </button>
 
       <!-- <div class="d-flex justify-content-center pt-3 mb-3 gray-label">OR</div>

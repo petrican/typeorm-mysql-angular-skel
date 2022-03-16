@@ -1,2 +1,17 @@
-<h1>Welcome to the Dashboard</h1>
-<button (click)="onLogout()">Logout</button>
+<h1>{{ "DASHBOARD.WELCOME" | translate }}</h1>
+<button (click)="onLogout()">
+  {{ "LOGIN.LOGOUT_BUTTON" | translate }}
+</button>
+
+<hr />
+Lang
+
+<select
+  name="test"
+  id="test"
+  [(ngModel)]="selectedLang"
+  (change)="doLangSwitch()"
+>
+  <option value="en">en</option>
+  <option value="fr">fr</option>
+</select>

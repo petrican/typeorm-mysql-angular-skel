@@ -1,0 +1,11 @@
+{
+  "LOGIN": {
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "LOGIN_BUTTON": "Login",
+    "LOGOUT_BUTTON": "Logout"
+  },
+  "DASHBOARD": {
+    "WELCOME": "Welcome to the Dashboard"
+  }
+}

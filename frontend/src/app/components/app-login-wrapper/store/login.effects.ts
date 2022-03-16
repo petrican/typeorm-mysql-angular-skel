@@ -7,12 +7,10 @@ import { AuthResponseData } from './login.types';
 import { User } from '../user.model';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../../store/app.reducer';
-import { Router } from '@angular/router';
 
 @Injectable()
 export class LoginEffects {
   constructor(
-    private router: Router,
     private actions$: Actions,
     private http: HttpClient,
     private store: Store<fromApp.AppState>
