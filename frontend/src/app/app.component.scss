@@ -1,0 +1,11 @@
+
+
+@import './app.assets-variables.scss';
+
+html { background-color:#fff; }
+body {
+    min-height: 100vh;
+    max-width: 400px;
+    background-color: $bg-main-color;
+    margin: 0 auto;
+}

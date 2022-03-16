@@ -1,0 +1,55 @@
+@import "../../app.assets-variables.scss";
+
+.login-screen-wrapper {
+  min-height: 100vh;
+
+  .login-form {
+    padding: 25px;
+    background-color: #ffffff;
+    box-shadow: rgb(58 51 46 / 20%) 0px 0px 5px 0px;
+    border-radius: 10px;
+    border: 1px solid #cfd6e4;
+
+    .login-header {
+      .login-logo {
+        width: 100px;
+        height: 100px;
+      }
+      .login-app-name {
+        font-size: 3em;
+        font-weight: bold;
+      }
+    }
+  }
+
+  input[type="checkbox"].checkbox-gray {
+    outline: none !important;
+    box-shadow: none;
+    border: 1px solid $btn-default-color-border;
+  }
+
+  .checkbox-gray:checked {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23000' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+    background-color: white;
+  }
+
+  .gray-label {
+    color: gray;
+  }
+
+  .btn-app {
+    color: $btn-default-white-color;
+    background-color: $btn-main-color;
+    border-color: $btn-main-color-border;
+  }
+
+  .btn-default {
+    color: $btn-default-gray-color;
+    border: 1px solid $btn-default-color-border;
+    outline: none !important;
+    box-shadow: none;
+  }
+  .btn-default:hover {
+    background-color: $btn-default-color-border;
+  }
+}
