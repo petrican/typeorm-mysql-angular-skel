@@ -34,7 +34,7 @@ export class AuthenticateSuccess implements Action {
       user_full_name: string;
       user_email: string;
       role: string;
-      expirationDate: Date;
+      expires_in: Date;
       redirect: boolean;
     }
   ) {}

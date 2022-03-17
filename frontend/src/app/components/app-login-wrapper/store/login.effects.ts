@@ -7,10 +7,12 @@ import { AuthResponseData } from './login.types';
 import { User } from '../user.model';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../../store/app.reducer';
+import { AuthService } from 'src/app/shared/auth.service';
 
 @Injectable()
 export class LoginEffects {
   constructor(
+    private authService: AuthService,
     private actions$: Actions,
     private http: HttpClient,
     private store: Store<fromApp.AppState>
@@ -25,15 +27,18 @@ export class LoginEffects {
     role: string,
     expires_in: number
   ) => {
-    const expirationDate = new Date(new Date().getTime() + expires_in * 1000);
+    const expireInTimeMs = expires_in * 1000;
+    const expirationDate = new Date(new Date().getTime() + expireInTimeMs);
     const user = new User(
       auth,
       token,
       username,
       user_full_name,
       user_email,
-      role
+      role,
+      expirationDate
     );
+    this.authService.autoLogout(expireInTimeMs);
     localStorage.setItem('userData', JSON.stringify(user));
 
     const authSuccess = new fromLogin.AuthenticateSuccess({
@@ -43,7 +48,7 @@ export class LoginEffects {
       user_full_name,
       user_email,
       role,
-      expirationDate,
+      expires_in: expirationDate,
       redirect: true,
     });
 

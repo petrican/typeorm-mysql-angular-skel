@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './shared/auth.service';
 import { GlobalTranslationService } from './shared/global-translation.service';
 
 @Component({
@@ -7,7 +8,14 @@ import { GlobalTranslationService } from './shared/global-translation.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(private translate: GlobalTranslationService) {}
+  constructor(
+    private translate: GlobalTranslationService,
+    private authService: AuthService
+  ) {}
 
   title = 'App';
+
+  ngOnInit() {
+    this.authService.autoLogin();
+  }
 }

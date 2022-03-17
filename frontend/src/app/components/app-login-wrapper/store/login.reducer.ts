@@ -17,7 +17,8 @@ export const loginReducer = createReducer(
   initialState,
   on(LoginActions.loginToServer, () => ({ ...initialState, hasErrors: true })),
   on(LoginActions.authSuccess, (state, payloadData) => {
-    const { auth, username, user_full_name, user_email } = payloadData.payload;
+    const { auth, username, user_full_name, user_email, expires_in } =
+      payloadData.payload;
     return {
       ...state,
       hasErrors: false,
@@ -25,6 +26,7 @@ export const loginReducer = createReducer(
       username,
       user_full_name,
       user_email,
+      expires_in,
     };
   }),
   on(LoginActions.logoutFromServer, () => ({ ...initialState }))
