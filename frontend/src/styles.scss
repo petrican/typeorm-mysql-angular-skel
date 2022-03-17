@@ -1,12 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-@import './app/app.assets-variables.scss';
+@import "./app/app.assets-variables.scss";
 
-
-html {  background-color: $bg-main-color; }
+html {
+  background-color: $bg-main-color;
+}
 body {
-    min-height: 90vh;
-    margin: 0 auto;
-    --bs-body-bg: $bg-main-color;
+  min-height: 90vh;
+  margin: 0 auto;
+  --bs-body-bg: $bg-main-color;
 }
 
 /**
@@ -29,6 +30,11 @@ input[type="tel"]:focus,
 input[type="color"]:focus,
 .uneditable-input:focus {
   border-color: $btn-main-color-border;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 3px $btn-main-color-border;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset,
+    0 0 3px $btn-main-color-border;
   outline: 0 none;
+}
+
+.container-fluid {
+  width: 96vw !important;
 }

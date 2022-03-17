@@ -37,7 +37,8 @@
             placeholder="{{ 'LOGIN.USERNAME' | translate }}"
             aria-label="Username"
             name="username"
-            ngModel
+            [(ngModel)]="rememberedUserName"
+            [appAutoFocus]="!rememberedUserName ? true : false"
             required
           />
           <!-- <div id="validationServerUsernameFeedback" class="invalid-feedback">
@@ -72,21 +73,23 @@
             ngModel
             required
             aria-describedby="basic-addon1"
+            [appAutoFocus]="rememberMe && rememberedUserName ? true : false"
           />
         </div>
       </div>
-      <!--
+
       <div class="form-check mb-3">
         <input
           type="checkbox"
           class="form-check-input checkbox-gray"
           id="rememberMe"
-          checked
+          name="rememberMe"
+          [(ngModel)]="rememberMe"
         />
         <label class="form-check-label gray-label" for="rememberMe"
           >Remember username on this computer</label
         >
-      </div> -->
+      </div>
 
       <button
         id="loginAccount"

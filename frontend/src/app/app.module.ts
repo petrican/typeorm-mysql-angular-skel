@@ -17,6 +17,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NavbarComponent } from './dashboard/navbar/navbar.component';
+import { AutoFocusDirective } from './directives/auto-focus.directive';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -24,7 +26,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent, AppLoginWrapperComponent, DashboardComponent],
+  declarations: [AppComponent, AppLoginWrapperComponent, DashboardComponent, NavbarComponent, AutoFocusDirective],
   imports: [
     BrowserModule,
     HttpClientModule,
