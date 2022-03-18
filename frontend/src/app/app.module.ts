@@ -13,12 +13,14 @@ import { LoginModule } from './components/app-login-wrapper/store/login.module';
 import { EffectsModule } from '@ngrx/effects';
 import { LoginEffects } from './components/app-login-wrapper/store/login.effects';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { NavbarComponent } from './dashboard/navbar/navbar.component';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { AutoFocusDirective } from './directives/auto-focus.directive';
+import { SettingsComponent } from './components/settings/settings.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -26,7 +28,15 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent, AppLoginWrapperComponent, DashboardComponent, NavbarComponent, AutoFocusDirective],
+  declarations: [
+    AppComponent,
+    AppLoginWrapperComponent,
+    DashboardComponent,
+    NavbarComponent,
+    AutoFocusDirective,
+    SettingsComponent,
+    FooterComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,

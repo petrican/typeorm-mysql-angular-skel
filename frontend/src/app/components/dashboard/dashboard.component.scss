@@ -1,0 +1,12 @@
+@import "../../app.assets-variables.scss";
+
+.btn-logout {
+  color: $btn-default-white-color;
+  background-color: $btn-main-color;
+  border-color: $btn-main-color-border;
+}
+.btn-logout:focus {
+  outline: none !important;
+  box-shadow: none;
+  border: 1px solid $btn-default-color-border;
+}

@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid">
+  <br />
+  <h1>{{ "DASHBOARD.WELCOME" | translate }}</h1>
+  <hr />
+  Lang
+
+  <select
+    name="test"
+    id="test"
+    [(ngModel)]="selectedLang"
+    (change)="doLangSwitch()"
+  >
+    <option value="en">en</option>
+    <option value="fr">fr</option>
+  </select>
+  <hr />
+  <div>
+    <button (click)="onLogout()" class="btn btn-primary btn-logout">
+      {{ "LOGIN.LOGOUT_BUTTON" | translate }}
+    </button>
+  </div>
+</div>
