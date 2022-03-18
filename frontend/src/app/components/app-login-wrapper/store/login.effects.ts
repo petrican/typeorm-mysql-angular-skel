@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, switchMap, tap } from 'rxjs';
+import { catchError, map, of, switchMap, throwError } from 'rxjs';
 import * as fromLogin from './login.actions';
 import { AuthResponseData } from './login.types';
 import { User } from '../user.model';
@@ -9,6 +9,13 @@ import { Store } from '@ngrx/store';
 import * as fromApp from '../../../store/app.reducer';
 import { AuthService } from 'src/app/shared/auth.service';
 
+const handleError = (errorRes: any) => {
+  let errorMessage = 'An unknown error occurred!';
+  if (!errorRes.error || !errorRes.error.error) {
+    return of(fromLogin.authFail({ payload: errorMessage }));
+  }
+  return of(fromLogin.authFail({ payload: errorRes }));
+};
 @Injectable()
 export class LoginEffects {
   constructor(
@@ -83,10 +90,7 @@ export class LoginEffects {
               })
             );
         })
-      ),
-    { dispatch: false }
+      )
+    // { dispatch: true }
   );
-}
-function handleError(errorRes: any): any {
-  throw new Error('Function not implemented.');
 }

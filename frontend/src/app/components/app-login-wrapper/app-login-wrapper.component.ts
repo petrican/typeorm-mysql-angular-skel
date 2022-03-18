@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import * as fromLogin from './store/login.actions';
-import { getAuthStatus } from './store/login.selectors';
+import { getAuthStatus, getLoginErrors } from './store/login.selectors';
 @Component({
   selector: 'app-app-login-wrapper',
   templateUrl: './app-login-wrapper.component.html',
@@ -14,8 +14,10 @@ export class AppLoginWrapperComponent implements OnInit, OnDestroy {
   isLoading = false;
   rememberMe: boolean = true;
   rememberedUserName: string = '';
+  hasErrors: boolean = false;
 
   private subAuth: Subscription | undefined;
+  private subLoginErrors: Subscription | undefined;
 
   constructor(private readonly store: Store, private router: Router) {}
 
@@ -28,6 +30,11 @@ export class AppLoginWrapperComponent implements OnInit, OnDestroy {
         this.router.navigate(['/dashboard']);
       }
     });
+    this.subLoginErrors = this.store
+      .select(getLoginErrors)
+      .subscribe((authErrors) => {
+        this.hasErrors = authErrors;
+      });
   }
 
   onLoginSubmit(form: NgForm) {

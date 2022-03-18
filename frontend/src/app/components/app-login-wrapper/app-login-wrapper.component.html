@@ -33,6 +33,7 @@
             aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback"
             type="text"
             class="form-control"
+            [ngClass]="{ 'form-control': true, 'is-invalid': hasErrors }"
             autocomplete="off"
             placeholder="{{ 'LOGIN.USERNAME' | translate }}"
             aria-label="Username"
@@ -65,7 +66,7 @@
           </span>
           <input
             type="password"
-            class="form-control"
+            [ngClass]="{ 'form-control': true, 'is-invalid': hasErrors }"
             placeholder="{{ 'LOGIN.PASSWORD' | translate }}"
             aria-label="Password"
             autocomplete="off"

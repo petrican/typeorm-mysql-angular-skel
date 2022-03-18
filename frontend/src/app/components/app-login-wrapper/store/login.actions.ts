@@ -4,6 +4,7 @@ import {
   LOGIN_START,
   LOGOUT_ACTION,
   AUTHENTICATE_SUCCESS,
+  AUTHENTICATE_FAIL,
 } from './login.constants';
 
 export const loginToServer = createAction(
@@ -11,10 +12,16 @@ export const loginToServer = createAction(
   props<{ payload: loginPayloadType }>()
 );
 
+export const authFail = createAction(
+  AUTHENTICATE_FAIL,
+  props<{ payload: string }>()
+);
+
 export const authSuccess = createAction(
   AUTHENTICATE_SUCCESS,
   props<{ payload: AuthResponseData }>()
 );
+
 export const logoutFromServer = createAction(LOGOUT_ACTION);
 
 export class LoginStart implements Action {
@@ -39,3 +46,11 @@ export class AuthenticateSuccess implements Action {
     }
   ) {}
 }
+
+export class AuthenticateFail implements Action {
+  readonly type = AUTHENTICATE_FAIL;
+
+  constructor(public payload: string) {}
+}
+
+export type AuthActions = LoginStart | AuthenticateSuccess | AuthenticateFail;
