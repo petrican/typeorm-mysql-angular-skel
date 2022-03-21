@@ -10,3 +10,7 @@ export const getLoginErrors = createSelector(getLoginState, (state) => {
 export const getAuthStatus = createSelector(getLoginState, (state) => {
   return state.isAuthenticated;
 });
+
+export const getFullUserName = createSelector(getLoginState, (state) => {
+  return state['user_full_name'];
+});

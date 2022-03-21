@@ -4,6 +4,7 @@ import * as LoginActions from './login.actions';
 export const loginFeatureKey = 'login';
 
 export interface LoginState {
+  [x: string]: any;
   hasErrors: boolean;
   isAuthenticated: boolean;
 }

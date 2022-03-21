@@ -1,0 +1,15 @@
+{
+  "LOGIN": {
+    "USERNAME": "Gebruikersnaam",
+    "PASSWORD": "Wachtwoord",
+    "REMEMBER_USER": "Onthoud gebruikersnaam op deze computer",
+    "LOGIN_BUTTON": "Log in",
+    "LOGOUT_BUTTON": "Uitloggen"
+  },
+  "DASHBOARD": {
+    "WELCOME": "Welkom op het dashboard"
+  },
+  "HEADER": {
+    "REPORTS": "Rapporten"
+  }
+}

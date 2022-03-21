@@ -2,10 +2,14 @@
   "LOGIN": {
     "USERNAME": "Username",
     "PASSWORD": "Password",
+    "REMEMBER_USER": "Remember username on this computer",
     "LOGIN_BUTTON": "Login",
     "LOGOUT_BUTTON": "Logout"
   },
   "DASHBOARD": {
     "WELCOME": "Welcome to the Dashboard"
+  },
+  "HEADER": {
+    "REPORTS": "Raports"
   }
 }

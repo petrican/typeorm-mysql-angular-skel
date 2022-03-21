@@ -24,10 +24,10 @@ export const login = async (req: Request, res: Response): Promise<Response> => {
         user_status: user.user_status,
       };
       const token = jwt.sign(userData, process.env.SECRET_KEY, {
-        expiresIn: "5m",
+        expiresIn: "8h",
       });
 
-      return res.json({ auth: true, token, expires_in: 300, ...userData });
+      return res.json({ auth: true, token, expires_in: 28800, ...userData });
     } else {
       return res.status(401).send({ error: { message: "Unauthorized." } });
     }

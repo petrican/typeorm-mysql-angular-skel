@@ -1,9 +1,37 @@
-.avatar {
-  vertical-align: middle;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 1px solid #595959;
-  padding: 3px;
-  background: blue;
+@import "../../../app.assets-variables.scss";
+
+.avatar-wrapper-with-arrow {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  width: 65px;
+  cursor: pointer;
+
+  .avatar-box {
+    vertical-align: middle;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid darkgray;
+    color: lightgray;
+    text-align: center;
+    padding: 4px 0 0px 4px;
+    cursor: pointer;
+
+    .avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: $btn-main-color;
+      padding: 4px;
+    }
+    .avatar-arrow {
+      padding-top: 10px !important;
+    }
+  }
+}
+
+.user-menu {
+  margin-left: -100px;
+  margin-top: 10px;
 }

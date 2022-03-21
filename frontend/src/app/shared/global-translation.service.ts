@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 @Injectable({ providedIn: 'root' })
 export class GlobalTranslationService {
   constructor(public translate: TranslateService) {
-    translate.addLangs(['en', 'fr']);
+    translate.addLangs(['en', 'fr', 'nl']);
 
     const userLang = localStorage.getItem('userLang');
 

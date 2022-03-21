@@ -2,10 +2,14 @@
   "LOGIN": {
     "USERNAME": "nom d'utilisateur",
     "PASSWORD": "le mot de passe",
+    "REMEMBER_USER": "Mémoriser le nom d'utilisateur sur cet ordinateur",
     "LOGIN_BUTTON": "Authentification",
     "LOGOUT_BUTTON": "Déconnecter"
   },
   "DASHBOARD": {
     "WELCOME": "Bienvenue sur le tableau de bord"
+  },
+  "HEADER": {
+    "REPORTS": "Rapports"
   }
 }
