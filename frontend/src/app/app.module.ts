@@ -12,7 +12,11 @@ import { StoreModule } from '@ngrx/store';
 import { LoginModule } from './components/app-login-wrapper/store/login.module';
 import { EffectsModule } from '@ngrx/effects';
 import { LoginEffects } from './components/app-login-wrapper/store/login.effects';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -21,6 +25,7 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { AutoFocusDirective } from './directives/auto-focus.directive';
 import { SettingsComponent } from './components/settings/settings.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { AuthInterceptorService } from './shared/auth-interceptor.service';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -58,7 +63,13 @@ export function HttpLoaderFactory(http: HttpClient) {
       autoPause: true,
     }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

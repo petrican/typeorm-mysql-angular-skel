@@ -1,2 +1,4 @@
 import LoginRoutes from "./login.routes";
-export { LoginRoutes };
+import TodoRoutes from "./todo.routes";
+
+export const allRoutes = [LoginRoutes, TodoRoutes];

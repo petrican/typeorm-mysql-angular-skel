@@ -27,7 +27,8 @@ export class NavbarComponent implements OnInit {
       .select(getFullUserName)
       .subscribe((fullUserName) => {
         this.user_full_name = fullUserName;
-        this.initialOfName = fullUserName.length ? fullUserName.charAt(0) : '?';
+        this.initialOfName =
+          fullUserName && fullUserName.length ? fullUserName.charAt(0) : '?';
       });
   }
 

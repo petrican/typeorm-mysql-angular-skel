@@ -6,6 +6,7 @@ import * as bodyParser from "body-parser";
 import * as api from "./routes/index";
 import { AdministratorDbSeed } from "./utils/administrator.dbseed";
 import * as cors from "cors";
+import { allRoutes } from "./routes/index";
 
 createConnection()
   .then(async (connection) => {
@@ -16,7 +17,7 @@ createConnection()
     app.use(cors());
 
     //routes
-    app.use(api.LoginRoutes);
+    app.use(allRoutes);
 
     // start express server
     if (process.env.SECRET_KEY) {

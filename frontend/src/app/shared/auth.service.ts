@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { BehaviorSubject } from 'rxjs';
 import * as fromLogin from '../components/app-login-wrapper/store/login.actions';
 import { User } from '../components/app-login-wrapper/user.model';
 
@@ -54,5 +55,14 @@ export class AuthService {
     this.tokenExpirationTimer = setTimeout(() => {
       this.doLogout();
     }, expirationDuration);
+  }
+
+  getLocalToken() {
+    const userData = localStorage.getItem('userData');
+    if (userData) {
+      return JSON.parse(userData)._token;
+    } else {
+      return null;
+    }
   }
 }
