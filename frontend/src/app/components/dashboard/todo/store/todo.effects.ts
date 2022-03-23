@@ -40,4 +40,16 @@ export class TodoEffects {
       )
     )
   );
+
+  remove$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TodoActions.remove),
+      concatMap(({ id }) =>
+        this.todoService.remove(id).pipe(
+          map((result) => TodoActions.removeSuccess({ id: result })),
+          catchError((error) => of(TodoActions.removeFailure({ error })))
+        )
+      )
+    )
+  );
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { TodoAddItem, TodoDataItem } from './todo.types';
 
 /**
@@ -25,5 +25,11 @@ export class TodoService {
 
   findAll(): Observable<TodoDataItem[]> {
     return this.http.get<TodoDataItem[]>(`http://localhost:3000/todos`, {});
+  }
+
+  remove(id: number): Observable<number> {
+    return this.http
+      .delete<void>(`http://localhost:3000/todos/${id}`)
+      .pipe(map(() => id));
   }
 }

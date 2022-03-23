@@ -7,6 +7,9 @@ import {
   TODO_READALL,
   TODO_READALL_SUCCESS,
   TODO_READALL_FAILURE,
+  TODO_DELETE,
+  TODO_DELETE_SUCCESS,
+  TODO_DELETE_FAILURE,
 } from './todo.constants';
 
 /** CREATE */
@@ -31,5 +34,18 @@ export const readAllSuccess = createAction(
 );
 export const readAllFailure = createAction(
   TODO_READALL_FAILURE,
+  props<{ error: unknown }>()
+);
+
+/** DELETE */
+export const remove = createAction(TODO_DELETE, props<{ id: number }>());
+
+export const removeSuccess = createAction(
+  TODO_DELETE_SUCCESS,
+  props<{ id: number }>()
+);
+
+export const removeFailure = createAction(
+  TODO_DELETE_FAILURE,
   props<{ error: unknown }>()
 );

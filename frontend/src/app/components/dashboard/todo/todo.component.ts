@@ -33,6 +33,10 @@ export class TodoComponent implements OnInit, OnDestroy {
     form.resetForm();
   }
 
+  deleteTodo(id: number) {
+    this.store.dispatch(TodoActions.remove({ id }));
+  }
+
   ngOnDestroy(): void {
     this.subTodos.unsubscribe();
   }
