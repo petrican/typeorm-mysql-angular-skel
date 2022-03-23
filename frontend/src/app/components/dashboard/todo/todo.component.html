@@ -1,6 +1,8 @@
 <!-- TODO COMPONENT -->
 <div class="mt-3">
-  <div class="card">
+  <app-todo-edit *ngIf="isEdited"></app-todo-edit>
+
+  <div class="card" *ngIf="!isEdited">
     <div class="card-body">
       <form (ngSubmit)="onFormSubmit(f)" #f="ngForm">
         <div class="todo-addition-wrapper">
@@ -38,12 +40,17 @@
       <ul class="list-group">
         <li
           *ngFor="let todo of todoItems.slice().reverse()"
-          class="list-group-item d-flex justify-content-between"
+          class="list-group-item d-flex justify-content-between pt-0 pb-0"
         >
-          {{ todo.action }}
+          <div
+            class="flex-grow-1 pt-2 pb-2 hand-cursor"
+            (click)="onInitEdit({ id: todo.id, action: todo.action })"
+          >
+            {{ todo.action }}
+          </div>
           <button
             type="button"
-            class="btn-close"
+            class="btn-close pt-3 pb-2"
             aria-label="Close"
             (click)="deleteTodo(todo.id)"
           ></button>

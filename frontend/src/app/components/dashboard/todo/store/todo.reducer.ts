@@ -8,16 +8,20 @@ export interface TodoState {
   error: null;
   loading: boolean;
   items: Array<TodoDataItem>;
+  isEdited?: boolean;
+  editedItem?: TodoDataItem;
 }
 
 export const initialState: TodoState = {
   error: null,
   loading: false,
   items: [],
+  isEdited: false,
 };
 
 export const todoReducer = createReducer(
   initialState,
+  // CREATE
   on(TodoActions.create, (state) => ({
     ...state,
     loading: true,
@@ -28,7 +32,7 @@ export const todoReducer = createReducer(
       items: [...state.items, payload.todo],
     };
   }),
-
+  // READ
   on(TodoActions.readAll, (state) => ({ ...state, loading: true })),
   on(TodoActions.readAllSuccess, (state, payload) => ({
     ...state,
@@ -40,6 +44,31 @@ export const todoReducer = createReducer(
     return {
       ...state,
       items: newTodos.filter((todoItem) => todoItem.id !== payload.id),
+    };
+  }),
+  // EDIT
+  on(TodoActions.initEdit, (state, payload) => ({
+    ...state,
+    isEdited: true,
+    editedItem: payload.todoItem,
+  })),
+  on(TodoActions.cancelEdit, (state, payload) => ({
+    ...state,
+    isEdited: payload.isEdited,
+  })),
+  on(TodoActions.updateSuccess, (state, payload) => {
+    const newTodos = [...state.items];
+    const resultedTodos = newTodos.map((todoItem) => {
+      if (todoItem.id == payload.todoItem.id) {
+        return { id: todoItem.id, action: payload.todoItem.action };
+      }
+      return todoItem;
+    });
+
+    return {
+      ...state,
+      isEdited: false,
+      items: resultedTodos,
     };
   })
 );

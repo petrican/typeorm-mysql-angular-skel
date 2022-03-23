@@ -1,6 +1,6 @@
-@import "../../../app.assets-variables.scss";
+@import "../../../../app.assets-variables.scss";
 
-.todo-addition-wrapper {
+.todo-edit-wrapper {
   display: flex;
   justify-content: flex-start;
 
@@ -13,8 +13,4 @@
     background-color: $btn-main-color;
     border-color: $btn-main-color-border;
   }
-}
-
-.hand-cursor {
-  cursor: pointer;
 }

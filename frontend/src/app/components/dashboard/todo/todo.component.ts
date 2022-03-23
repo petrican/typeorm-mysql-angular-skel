@@ -15,6 +15,7 @@ export class TodoComponent implements OnInit, OnDestroy {
   hasErrors = false;
   todoInput: string = '';
   todoItems!: TodoDataItem[];
+  isEdited: boolean | undefined = false;
 
   private subTodos!: Subscription;
 
@@ -24,6 +25,7 @@ export class TodoComponent implements OnInit, OnDestroy {
     this.store.dispatch(TodoActions.readAll({ loading: true }));
     this.subTodos = this.store.select(getTodoBranch).subscribe((todo) => {
       this.todoItems = todo.items;
+      this.isEdited = todo.isEdited;
     });
   }
 
@@ -35,6 +37,10 @@ export class TodoComponent implements OnInit, OnDestroy {
 
   deleteTodo(id: number) {
     this.store.dispatch(TodoActions.remove({ id }));
+  }
+
+  onInitEdit(todoItem: TodoDataItem) {
+    this.store.dispatch(TodoActions.initEdit({ todoItem }));
   }
 
   ngOnDestroy(): void {

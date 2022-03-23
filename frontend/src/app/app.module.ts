@@ -29,6 +29,7 @@ import { AuthInterceptorService } from './shared/auth-interceptor.service';
 import { TodoComponent } from './components/dashboard/todo/todo.component';
 import { TodoModule } from './components/dashboard/todo/store/todo-store.module';
 import { TodoEffects } from './components/dashboard/todo/store/todo.effects';
+import { TodoEditComponent } from './components/dashboard/todo/todo-edit/todo-edit.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -45,6 +46,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SettingsComponent,
     FooterComponent,
     TodoComponent,
+    TodoEditComponent,
   ],
   imports: [
     BrowserModule,

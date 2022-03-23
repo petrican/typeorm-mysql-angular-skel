@@ -10,6 +10,11 @@ import {
   TODO_DELETE,
   TODO_DELETE_SUCCESS,
   TODO_DELETE_FAILURE,
+  TODO_START_EDIT,
+  TODO_CANCEL_EDIT,
+  TODO_UPDATE_START,
+  TODO_UPDATE_FAILURE,
+  TODO_UPDATE_SUCCESS,
 } from './todo.constants';
 
 /** CREATE */
@@ -47,5 +52,30 @@ export const removeSuccess = createAction(
 
 export const removeFailure = createAction(
   TODO_DELETE_FAILURE,
+  props<{ error: unknown }>()
+);
+
+/** EDIT/UPDATE */
+export const initEdit = createAction(
+  TODO_START_EDIT,
+  props<{ todoItem: TodoDataItem }>()
+);
+
+export const cancelEdit = createAction(
+  TODO_CANCEL_EDIT,
+  props<{ isEdited: boolean }>()
+);
+
+export const updateTodoStart = createAction(
+  TODO_UPDATE_START,
+  props<{ todoItem: TodoDataItem }>()
+);
+export const updateSuccess = createAction(
+  TODO_UPDATE_SUCCESS,
+  props<{ todoItem: TodoDataItem }>()
+);
+
+export const updateFailure = createAction(
+  TODO_UPDATE_FAILURE,
   props<{ error: unknown }>()
 );

@@ -27,6 +27,13 @@ export class TodoService {
     return this.http.get<TodoDataItem[]>(`http://localhost:3000/todos`, {});
   }
 
+  update(todo: TodoDataItem): Observable<TodoDataItem> {
+    return this.http.put<TodoDataItem>(
+      `http://localhost:3000/todos/${todo.id}`,
+      todo
+    );
+  }
+
   remove(id: number): Observable<number> {
     return this.http
       .delete<void>(`http://localhost:3000/todos/${id}`)

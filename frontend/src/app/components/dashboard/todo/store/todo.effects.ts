@@ -41,6 +41,22 @@ export class TodoEffects {
     )
   );
 
+  update$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TodoActions.updateTodoStart),
+      concatMap(({ todoItem }) =>
+        this.todoService.update(todoItem).pipe(
+          map((result) =>
+            TodoActions.updateSuccess({
+              todoItem: { id: result.id, action: result.action },
+            })
+          ),
+          catchError((error) => of(TodoActions.updateFailure({ error })))
+        )
+      )
+    )
+  );
+
   remove$ = createEffect(() =>
     this.actions$.pipe(
       ofType(TodoActions.remove),
