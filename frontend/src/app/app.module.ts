@@ -26,6 +26,9 @@ import { AutoFocusDirective } from './directives/auto-focus.directive';
 import { SettingsComponent } from './components/settings/settings.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { AuthInterceptorService } from './shared/auth-interceptor.service';
+import { TodoComponent } from './components/dashboard/todo/todo.component';
+import { TodoModule } from './components/dashboard/todo/store/todo-store.module';
+import { TodoEffects } from './components/dashboard/todo/store/todo.effects';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -41,6 +44,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AutoFocusDirective,
     SettingsComponent,
     FooterComponent,
+    TodoComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +61,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
     }),
     LoginModule,
+    TodoModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,

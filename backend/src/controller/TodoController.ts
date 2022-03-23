@@ -20,7 +20,7 @@ export const getAll = async (
     const todoRepository = getRepository(Todo);
     const todos = await todoRepository.find();
     if (todos) {
-      return res.json({ ...todos });
+      return res.json([...todos]);
     } else {
       return res.status(401).send({ error: { message: "Unauthorized." } });
     }
@@ -48,7 +48,7 @@ export const updateTodo = async (
     const results = await getRepository(Todo).save(todoItem);
     return res.json(results);
   }
-  return res.status(404).json({ msg: "Not user found" });
+  return res.status(404).json({ msg: "No todo found" });
 };
 
 export const deleteTodo = async (

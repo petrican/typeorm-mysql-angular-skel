@@ -15,7 +15,7 @@ import {
 router.post("/todos", createTodo);
 router.get("/todos", getAll);
 router.get("/todos/:id", getOne);
-router.post("/todos/:id", updateTodo);
+router.put("/todos/:id", updateTodo);
 router.delete("/todos/:id", deleteTodo);
 
 export default router;

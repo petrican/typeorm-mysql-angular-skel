@@ -6,7 +6,6 @@ import * as fromLogin from './login.actions';
 import { AuthResponseData } from './login.types';
 import { User } from '../user.model';
 import { Store } from '@ngrx/store';
-import * as fromApp from '../../../store/app.reducer';
 import { AuthService } from 'src/app/shared/auth.service';
 
 const handleError = (errorRes: any) => {
@@ -22,7 +21,7 @@ export class LoginEffects {
     private authService: AuthService,
     private actions$: Actions,
     private http: HttpClient,
-    private store: Store<fromApp.AppState>
+    private store: Store
   ) {}
 
   handleAuthentication = (

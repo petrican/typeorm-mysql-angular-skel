@@ -1,0 +1,16 @@
+@import "../../../app.assets-variables.scss";
+
+.todo-addition-wrapper {
+  display: flex;
+  justify-content: flex-start;
+
+  .todo-input {
+    width: 50vw;
+  }
+
+  .btn-submit-todo {
+    color: $btn-default-white-color;
+    background-color: $btn-main-color;
+    border-color: $btn-main-color-border;
+  }
+}
