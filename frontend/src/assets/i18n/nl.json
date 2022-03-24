@@ -11,5 +11,12 @@
   },
   "HEADER": {
     "REPORTS": "Rapporten"
+  },
+  "TODOS": {
+    "ADD_TODO": "Todo toevoegen",
+    "EDIT_TODO": "Bewerk taak",
+    "UPDATE_TODO": "Bijwerken",
+    "SUBMIT": "Trimiet",
+    "NO_TODOS": "Nog geen taken toegevoegd. Voeg wat toe!"
   }
 }

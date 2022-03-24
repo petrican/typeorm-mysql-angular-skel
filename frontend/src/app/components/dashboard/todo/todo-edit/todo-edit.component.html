@@ -3,7 +3,9 @@
     <form (ngSubmit)="onFormSubmit(f)" #f="ngForm">
       <div class="d-flex justify-content-between">
         <div class="todo-edit-wrapper">
-          <div><h3>Edit todo:</h3></div>
+          <div>
+            <h3>{{ "TODOS.EDIT_TODO" | translate }}:</h3>
+          </div>
 
           <div class="ms-3 todo-input">
             <div class="login-form form">
@@ -25,7 +27,9 @@
             </div>
           </div>
           <div class="ms-3">
-            <button type="submit" class="btn btn-submit-todo">Update</button>
+            <button type="submit" class="btn btn-submit-todo">
+              {{ "TODOS.UPDATE_TODO" | translate }}
+            </button>
           </div>
         </div>
         <div class="pe-3">

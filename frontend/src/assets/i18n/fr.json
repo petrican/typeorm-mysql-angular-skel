@@ -11,5 +11,12 @@
   },
   "HEADER": {
     "REPORTS": "Rapports"
+  },
+  "TODOS": {
+    "ADD_TODO": "Ajouter une tâche",
+    "EDIT_TODO": "Modifier la tâche",
+    "UPDATE_TODO": "Actualiser",
+    "SUBMIT": "Envoyer",
+    "NO_TODOS": "Aucune tâche n'a encore été ajoutée. Ajoute-en!"
   }
 }

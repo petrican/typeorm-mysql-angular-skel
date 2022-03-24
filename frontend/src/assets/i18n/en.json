@@ -11,5 +11,12 @@
   },
   "HEADER": {
     "REPORTS": "Raports"
+  },
+  "TODOS": {
+    "ADD_TODO": "Add todo",
+    "EDIT_TODO": "Edit todo",
+    "UPDATE_TODO": "Update",
+    "SUBMIT": "Submit",
+    "NO_TODOS": "No todos yet added. Add some!"
   }
 }

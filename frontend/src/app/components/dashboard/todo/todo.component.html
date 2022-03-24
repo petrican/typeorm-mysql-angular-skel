@@ -6,12 +6,15 @@
     <div class="card-body">
       <form (ngSubmit)="onFormSubmit(f)" #f="ngForm">
         <div class="todo-addition-wrapper">
-          <div><h3>Add todo:</h3></div>
+          <div>
+            <h3>{{ "TODOS.ADD_TODO" | translate }}:</h3>
+          </div>
 
           <div class="ms-3 todo-input">
             <div class="login-form form">
               <div class="form-group">
                 <input
+                  #addTodoInput
                   id="todoItemInputId"
                   aria-describedby="todoItemInputId"
                   type="text"
@@ -28,7 +31,9 @@
             </div>
           </div>
           <div class="ms-3">
-            <button type="submit" class="btn btn-submit-todo">Submit</button>
+            <button type="submit" class="btn btn-submit-todo">
+              {{ "TODOS.SUBMIT" | translate }}
+            </button>
           </div>
         </div>
       </form>
@@ -37,6 +42,9 @@
 
   <div class="card mt-2">
     <div class="card-body">
+      <div *ngIf="!todoItems.length" class="text-muted">
+        {{ "TODOS.NO_TODOS" | translate }}
+      </div>
       <ul class="list-group">
         <li
           *ngFor="let todo of todoItems.slice().reverse()"
